@@ -1,0 +1,33 @@
+A = 0
+B = 0
+o_ = verdadero
+sin = mate.sin
+cos = mate.cos
+
+mientras (verdadero) 
+        escribir("\x1b[2J") #Limpiar Pantalla
+        #buffer = [[" " para _ en rango(80)] para _ en rango(22)] # Crear un buffer 2D para la pantalla
+        para i en rango (0, 628, 2)
+            para j en rango (0, 628, 7)
+                 c = sin(i / 100)
+                 d = cos(j / 100)
+                 e = sin(A)
+                 f = sin(j / 100)
+                 g = cos(A)
+                 l = cos(i / 100)
+                 m = cos(B)
+                 n = sin(B)
+                 h = d + 2
+                 D = 1 / (c * h * e + f * g + 5)
+                 t = c * h * g - f * e
+                 x = 40 + 30 * D * (l * h * m - t * n)
+                 y = 12 + 15 * D * (l * h * n + t * m)
+                 N = 8 * ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n )
+			     si 0 < x < 80 && 22 > y > 0
+                #buffer[y][x] = ".,-~:;=!*#$@"[N si N > 0 sino3.0 0]
+                 escribir("".join(["".join(row) + "\n" for row in buffer]))  # Imprimir el buffer
+                 escribir("\x1b[H") # Mover el cursor por la pantalla
+                 fin
+            fin
+        fin
+fin
